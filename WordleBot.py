@@ -1,4 +1,3 @@
-import numpy
 import csv
 from wordle_bot_functions import *
 
@@ -22,8 +21,11 @@ while state != ["G","G","G","G","G"]:
     guesses += 1
     results = get_results(guess)
     state = results
-    filteredList = filterList(filteredList,results,guess)
+    print(state)
+    filteredList = filter_list(filteredList,results,guess)
+    print("filtered")
     ### Retrieve new guess from List -- Will need to incorporate Bits
-    guess = filteredList[0]
+    guess = select_best_guess(filteredList)
+    print("Guess Selected")
     
 print("________________________________\n\nYou won in " + str(guesses) + " guesses!\n________________________________")
