@@ -26,6 +26,9 @@ while state != ["G","G","G","G","G"]:
     print("filtered")
     ### Retrieve new guess from List -- Will need to incorporate Bits
     guess = select_best_guess(filteredList)
+    if guess == "ERROR":
+        raise ValueError("Error word not in library")
     print("Guess Selected")
+    
     
 print("________________________________\n\nYou won in " + str(guesses) + " guesses!\n________________________________")
